@@ -11,7 +11,7 @@ A lo largo de la guía se construye el motor de un "Sistema de Gestión de Alumn
 ## 1.1 Método de la División
 Implemente una función en C++ `int hashDivision(int clave, int m)` que aplique el método de la división: $h(k) = k \bmod m$.
 
-- Pregunta:** ¿Si nuestro sistema espera unos 1000 alumnos inscritos, por qué sería una mala idea elegir $m = 1000$ o $m = 1024$? ¿Qué tipo de número debería ser $m$ y por qué?
+- Pregunta: ¿Si nuestro sistema espera unos 1000 alumnos inscritos, por qué sería una mala idea elegir $m = 1000$ o $m = 1024$? ¿Qué tipo de número debería ser $m$ y por qué?
 
 ## 1.2 - Método de la Multiplicación
 Implemente una función `int hashMultiplicacion(int clave, int m)` usando el método de la multiplicación: $h(k) = \lfloor m \cdot ((k \cdot A) \bmod 1) \rfloor$, donde $A = (\sqrt{5} - 1) / 2 \approx 0.6180339887$. 
@@ -28,7 +28,7 @@ Cree la clase `TablaHashCerrada`. Internamente debe tener un arreglo estático d
 Implemente el método `bool insertarLineal(Alumno a)` en su clase. Utilice `hashDivision` para encontrar la posición inicial. Si hay una colisión, aplique la política de *Sondeo Lineal* ($h(k, i) = (h'(k) + i) \bmod m$) para encontrar la siguiente ranura libre.
 
 ## 2.3 - Búsqueda, Factor de Carga y Agrupamiento
-Agregue el método `Alumno* buscarLineal(int legajo)` y el método `float calcularFactorCarga()`, el cual debe retornar la relación $\alpha = n / m$.
+Agregue el método `Alumno& buscarLineal(int legajo)` y el método `float calcularFactorCarga()`, el cual debe retornar la relación $\alpha = n / m$.
 - Pregunta: Notar que se forman grandes bloques de celdas contiguas ocupadas. ¿Cómo se llama este fenómeno y por qué el Sondeo Lineal es particularmente vulnerable a él? ¿Qué formas de evitar este problema se le ocurren?.
 
 ## 2.4 - Doble Hash
@@ -45,7 +45,7 @@ Cree una nueva clase `TablaHashAbierta`. Internamente usará un arreglo de lista
 Implemente el método `void insertar(Alumno a)`. Observe cómo el manejo de colisiones se simplifica al hacer un `InsertarAlFinal` en la lista correspondiente.
 
 ## 3.2 - Búsqueda y Eliminación
-Implemente `bool eliminar(int legajo)` y `Alumno* buscar(int legajo)` para la tabla hash abierta.
+Implemente `bool eliminar(int legajo)` y `Alumno& buscar(int legajo)` para la tabla hash abierta.
 - Pregunta: ¿por qué eliminar un elemento en un Hash Abierto (Listas) es una operación trivial y limpia, mientras que en un Hash Cerrado (Direccionamiento Abierto) requiere el uso de "Lápidas" (marcas especiales. Estado `BORRADO`)?.
 
 ## 3.4 - Rehashing Dinámico
